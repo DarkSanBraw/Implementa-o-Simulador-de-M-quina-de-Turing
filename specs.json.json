@@ -1,0 +1,24 @@
+{
+    "description": "Máquina de Turing para reconhecer a linguagem a^n b^n (mesma quantidade de a's seguida por b's). Usa 'X' para 'a' e 'Y' para 'b'.",
+    "initial": 0,
+    "final": [4],
+    "white": "_",
+    "transitions": [
+        {"from": 0, "to": 1, "read": "a", "write": "X", "dir": "R"},
+        {"from": 0, "to": 3, "read": "Y", "write": "Y", "dir": "R"},
+        {"from": 0, "to": 0, "read": "X", "write": "X", "dir": "R"},
+        {"from": 0, "to": 0, "read": "#", "write": "#", "dir": "R"},
+        
+        {"from": 1, "to": 1, "read": "a", "write": "a", "dir": "R"},
+        {"from": 1, "to": 1, "read": "Y", "write": "Y", "dir": "R"},
+        {"from": 1, "to": 2, "read": "b", "write": "Y", "dir": "L"},
+        
+        {"from": 2, "to": 2, "read": "a", "write": "a", "dir": "L"},
+        {"from": 2, "to": 2, "read": "Y", "write": "Y", "dir": "L"},
+        {"from": 2, "to": 0, "read": "X", "write": "X", "dir": "R"},
+        {"from": 2, "to": 2, "read": "#", "write": "#", "dir": "L"},
+        
+        {"from": 3, "to": 3, "read": "Y", "write": "Y", "dir": "R"},
+        {"from": 3, "to": 4, "read": "_", "write": "_", "dir": "R"}
+    ]
+}
